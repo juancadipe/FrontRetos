@@ -15,7 +15,7 @@ function autoInicioCategoria(){
     
     })
 }
-//Manejador GET
+//Manejador GET Captura de información
 function traerInformacionFincas() {
     $.ajax({
         url:"http://150.230.33.50:8080/api/Farm/all",
@@ -124,7 +124,7 @@ function guardarInformacionFincas() {
                     alert("Se ha guardado Correctamente!")
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert("No se Guardo Correctamente")
+                    alert("No se Guardo Correctamente Debe selecciionar una categoria")
                 }
             });
     }

@@ -15,15 +15,15 @@ function autoInicioRelacionCliente(){
     
     })
 }
-function autoInicioSkate(){
+function autoInicioFinca(){
 
     $.ajax({
-        url:"http://150.230.33.50:8080/api/Skate/all",
+        url:"http://150.230.33.50:8080/api/Farm/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
         
-            let $select = $("#select-skate");
+            let $select = $("#select-farm");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
          
@@ -52,11 +52,19 @@ function autoInicioMensajes(){
 function pintarRespuestaMensajes(respuesta){
 
     let myTable="<table>";
+    myTable+="<tr>";
+        myTable+="<td>Mensaje</td>";
+        myTable+="<td>Finca</td>";
+        myTable+="<td>Nombre Cliente</td>";
+        myTable+="<td>ACTUALIZAR</td>";
+        myTable+="<td>BORRAR</td>";
+    "</tr>";
+
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
         
         myTable+="<td>"+respuesta[i].messageText+"</td>";
-        myTable+="<td>"+respuesta[i].skate.name+"</td>";
+        myTable+="<td>"+respuesta[i].farm.name+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td> <button onclick=' actualizarInformacionMensaje("+respuesta[i].idMessage+")'>Actualizar</button>";
         myTable+="<td> <button onclick='borrarMensaje("+respuesta[i].idMessage+")'>Borrar</button>";
@@ -76,7 +84,7 @@ function guardarInformacionMensajes(){
     let var2 = {
         
         messageText:$("#messagetext").val(),
-        skate:{id: +$("#select-skate").val()},
+        farm:{id: +$("#select-farm").val()},
         client:{idClient: +$("#select-client").val()},
 
      
@@ -114,7 +122,7 @@ function actualizarInformacionMensaje(idElemento){
     let myData={
         idMessage:idElemento,
         messageText:$("#messagetext").val(),
-        skate:{id: +$("#select-skate").val()},
+        farm:{id: +$("#select-farm").val()},
         client:{idClient: +$("#select-client").val()},
 
     

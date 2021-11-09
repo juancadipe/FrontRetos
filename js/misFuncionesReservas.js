@@ -96,8 +96,8 @@ function pintarRespuestaReservation(response){
    
     let myTable="<table>";
     myTable+="<tr>";
-        myTable+="<td>Fecha Inicio</td>";
-        myTable+="<td>fecha Devolucion</td>";
+        myTable+="<td>Fecha Inicio Reserva</td>";
+        myTable+="<td>Fecha Fin Reserva </td>";
         myTable+="<td>Estado</td>";
         myTable+="<td>Finca</td>";
         myTable+="<td>Cliente</td>";
@@ -164,6 +164,7 @@ function cargarDatosReservation(id) {
             $("#startDate").val(item.startDate);
             $("#devolutionDate").val(item.devolutionDate);
             $("#status").val(item.status);
+           
 
         },
 
@@ -187,7 +188,7 @@ function actualizarReservation(idElemento) {
             farm:{id: +$("#select-farm").val()},
             client:{idClient: +$("#select-client").val()},
         }
-
+        console.log(elemento);
         let dataToSend = JSON.stringify(elemento);
 
         $.ajax({
@@ -209,6 +210,7 @@ function actualizarReservation(idElemento) {
                 $("#startDate").val("");
                 $("#devolutionDate").val("");
                 $("#status").val("");
+                
 
             },
             error: function (jqXHR, textStatus, errorThrown) {

@@ -14,6 +14,12 @@ function traerInformacionCategorias(){
 function pintarRespuesta(respuesta){
 
     let myTable="<table>";
+    myTable+="<tr>";
+    myTable+="<td>Nombre Categoria</td>";
+    myTable+="<td>Descripcion Categoria</td>";
+
+"</tr>";
+
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
         myTable+="<td>"+respuesta[i].name+"</td>";

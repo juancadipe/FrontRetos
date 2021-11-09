@@ -17,6 +17,16 @@ function autoInicioCliente(){
 function pintarRespuesta2(respuesta){
 
     let myTable="<table>";
+    myTable+="<tr>";
+    myTable+="<td>Email</td>";
+    myTable+="<td>Password</td>";
+    myTable+="<td>Nombre del Cliente</td>";
+    myTable+="<td>Edad</td>";
+    myTable+="<td>ACTUALIZAR</td>";
+    myTable+="<td>BORRAR</td>";
+    "</tr>";
+
+
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr>";
         
